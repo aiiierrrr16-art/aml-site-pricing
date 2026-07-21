@@ -1,8 +1,8 @@
 const services = [
-  { name: "网站诊断报告", price: "699", fit: "适合已有网站，但不确定问题在哪里", items: ["首页、产品页与移动端体验检查", "购买路径与基础转化问题梳理", "基础 SEO、速度与信任感检查", "交付一份问题清单及优化优先级"] },
+  { name: "网站诊断报告", price: "699", fit: "适合已有网站，但不确定问题在哪里", items: ["首页、产品页与移动端体验检查", "购买路径与基础转化问题梳理", "基础 SEO、速度与信任感检查", "交付一份问题清单及优化优先级", "诊断费可在后续任意优化 / 建站服务中全额抵扣"] },
   { name: "首页优化", price: "1,500", fit: "适合网站已上线，但首页缺少品牌感与重点", image: "./service-shots/home-optimization.png", mobileImage: "./service-shots/home-optimization-mobile.png", items: ["首屏卖点与内容顺序重新梳理", "版式、字体、色彩与视觉层级优化", "核心模块与行动按钮调整", "桌面端及移动端适配"] },
   { name: "首页 + 产品页优化", price: "3,000", fit: "适合有流量，但访问后加购和购买偏低", image: "./service-shots/home-product.png", mobileImage: "./service-shots/home-product-mobile.png", items: ["首页内容结构与品牌视觉升级", "产品页信息、卖点与购买区优化", "信任背书、FAQ 与关联推荐规划", "核心购买路径及移动端整体检查"] },
-  { name: "AI 视觉素材包", price: "1,000", fit: "适合缺少拍摄预算，或需要快速补齐视觉", items: ["品牌风格与素材用途确认", "产品氛围图、场景图或模特图生成", "Banner 与社媒常用尺寸适配", "基础精修及统一色调输出"] },
+  { name: "AI 视觉素材（项目加购）", price: "", fit: "建站 / 优化项目可加购品牌视觉素材，按需报价。", items: ["独立需求：产品 / 场景图 ¥800 起 / 10 张", "原创模特形象 ¥1,500 起 / 组"] },
   { name: "基础品牌站搭建", price: "6,000", fit: "适合首次启动 Shopify、产品与素材较完整", items: ["基础需求梳理与网站结构规划", "首页、产品页及必要基础页面搭建", "支付、域名、物流与基础 SEO 配置", "移动端适配、上线检查与后台交接"] },
   { name: "完整品牌站", price: "10,000", fit: "适合希望从品牌表达开始系统搭建独立站", image: "./service-shots/full-brand-site.png", mobileImage: "./service-shots/full-brand-site-mobile.png", items: ["品牌定位、页面策略与视觉方向", "首页、集合页、产品页及内容页面", "AI 视觉素材与转化模块设计", "支付物流、SEO、上线测试及操作说明"] },
 ];
@@ -36,6 +36,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <p className="eyebrow">SHOPIFY DESIGN & DEVELOPMENT</p>
         <h1>让你的独立站，<br /><em>更专业，也更能转化。</em></h1>
+        <p className="identity">独立设计师一对一接单，不外包、不转手，全程直接对接。</p>
         <div className="heroBottom">
           <p>从页面优化、AI 视觉到完整品牌站搭建。按阶段确认、按节点付款，让预算、进度和交付都清清楚楚。</p>
           <a className="button dark" href="#services">查看服务报价 <span>↓</span></a>
@@ -57,8 +58,9 @@ export default function Home() {
                 {service.mobileImage && <img className="mobileShot" src={service.mobileImage} alt={`${service.name}手机端代表项目截图，品牌信息已隐去`} />}
                 <figcaption>DESKTOP + MOBILE</figcaption>
               </figure>}
-              <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              <div className="price"><small>¥</small>{service.price}<small> 起</small></div>
+              <ul>{service.items.map((item, itemIndex) => <li className={index === 0 && itemIndex === service.items.length - 1 ? "benefit" : ""} key={item}>{item}</li>)}</ul>
+              {index >= 4 && <p className="trustBuffer">可先从诊断或单页优化开始合作，满意后再推进。</p>}
+              <div className={`price ${index === 3 ? "addonPrice" : ""}`}>{index === 3 ? "按需报价" : <><small>¥</small>{service.price}<small> 起</small></>}</div>
               <a href="#contact">咨询此服务 ↗</a>
             </article>
           ))}
