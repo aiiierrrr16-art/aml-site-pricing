@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aml-site-pricing.aierer.chatgpt.site"),
+  metadataBase: new URL(
+    process.env.GITHUB_PAGES === "true"
+      ? "https://aiiierrrr16-art.github.io/aml-site-pricing/"
+      : "https://aml-site-pricing.aierer.chatgpt.site",
+  ),
   title: "AML｜独立站设计与搭建服务报价",
   description: "Shopify 页面优化、AI 视觉与完整品牌站搭建服务报价。按阶段确认、按节点付款。",
   openGraph: {
