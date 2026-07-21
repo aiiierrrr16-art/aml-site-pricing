@@ -1,10 +1,10 @@
 const services = [
-  ["网站诊断报告", "699", "体验、转化与基础 SEO 诊断"],
-  ["首页优化", "1,500", "视觉层级、内容动线与移动端"],
-  ["首页 + 产品页优化", "3,000", "核心购买路径整体升级"],
-  ["AI 视觉素材包", "1,000", "Banner、产品氛围图与社媒素材"],
-  ["基础品牌站搭建", "6,000", "从结构规划到上线交接"],
-  ["完整品牌站", "10,000", "品牌视觉、页面与转化系统"],
+  { name: "网站诊断报告", price: "699", fit: "适合已有网站，但不确定问题在哪里", items: ["首页、产品页与移动端体验检查", "购买路径与基础转化问题梳理", "基础 SEO、速度与信任感检查", "交付一份问题清单及优化优先级"] },
+  { name: "首页优化", price: "1,500", fit: "适合网站已上线，但首页缺少品牌感与重点", items: ["首屏卖点与内容顺序重新梳理", "版式、字体、色彩与视觉层级优化", "核心模块与行动按钮调整", "桌面端及移动端适配"] },
+  { name: "首页 + 产品页优化", price: "3,000", fit: "适合有流量，但访问后加购和购买偏低", items: ["首页内容结构与品牌视觉升级", "产品页信息、卖点与购买区优化", "信任背书、FAQ 与关联推荐规划", "核心购买路径及移动端整体检查"] },
+  { name: "AI 视觉素材包", price: "1,000", fit: "适合缺少拍摄预算，或需要快速补齐视觉", items: ["品牌风格与素材用途确认", "产品氛围图、场景图或模特图生成", "Banner 与社媒常用尺寸适配", "基础精修及统一色调输出"] },
+  { name: "基础品牌站搭建", price: "6,000", fit: "适合首次启动 Shopify、产品与素材较完整", items: ["基础需求梳理与网站结构规划", "首页、产品页及必要基础页面搭建", "支付、域名、物流与基础 SEO 配置", "移动端适配、上线检查与后台交接"] },
+  { name: "完整品牌站", price: "10,000", fit: "适合希望从品牌表达开始系统搭建独立站", items: ["品牌定位、页面策略与视觉方向", "首页、集合页、产品页及内容页面", "AI 视觉素材与转化模块设计", "支付物流、SEO、上线测试及操作说明"] },
 ];
 
 const rules = [
@@ -41,12 +41,13 @@ export default function Home() {
       <section className="section shell" id="services">
         <header className="sectionHead"><p>01 / 服务报价</p><h2>选择适合你的起点</h2><span>以下为常见项目参考价，最终费用根据页面数量、功能复杂度、素材与交付周期确认。</span></header>
         <div className="services">
-          {services.map(([name, price, note], index) => (
-            <article className={index === 2 ? "featured" : ""} key={name}>
+          {services.map((service, index) => (
+            <article className={index === 2 ? "featured" : ""} key={service.name}>
               <span className="number">0{index + 1}</span>
-              <h3>{name}</h3>
-              <p>{note}</p>
-              <div className="price"><small>¥</small>{price}<small> 起</small></div>
+              <h3>{service.name}</h3>
+              <p className="serviceFit">{service.fit}</p>
+              <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              <div className="price"><small>¥</small>{service.price}<small> 起</small></div>
               <a href="#contact">咨询此服务 ↗</a>
             </article>
           ))}
