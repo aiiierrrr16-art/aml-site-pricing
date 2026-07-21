@@ -1,0 +1,95 @@
+const services = [
+  ["网站诊断报告", "699", "体验、转化与基础 SEO 诊断"],
+  ["首页优化", "1,500", "视觉层级、内容动线与移动端"],
+  ["首页 + 产品页优化", "3,000", "核心购买路径整体升级"],
+  ["AI 视觉素材包", "1,000", "Banner、产品氛围图与社媒素材"],
+  ["基础品牌站搭建", "6,000", "从结构规划到上线交接"],
+  ["完整品牌站", "10,000", "品牌视觉、页面与转化系统"],
+];
+
+const rules = [
+  ["01", "首款到账后排期", "项目确认后支付启动款，到账后正式排期并进入需求梳理。"],
+  ["02", "每页包含 2 轮修改", "修改针对已确认方案的优化，不包含整体方向重新设计。"],
+  ["03", "新增需求另行报价", "新增页面、功能、插件、文案、图片或推翻已确认方向，需重新评估。"],
+  ["04", "第三方费用客户承担", "Shopify 套餐、域名、主题、App、邮箱、版权素材及广告费用不代垫。"],
+  ["05", "资料延迟，工期顺延", "因客户资料或确认延迟导致的项目延期，交付日期相应顺延。"],
+  ["06", "交付后 7 天基础修复", "处理原交付范围内的基础问题，不包含任何新增需求。"],
+];
+
+export default function Home() {
+  return (
+    <main>
+      <nav className="nav shell" aria-label="主导航">
+        <a className="brand" href="#top">AML <span>独立站服务</span></a>
+        <div className="navLinks">
+          <a href="#services">服务</a><a href="#payment">付款</a><a href="#rules">规则</a>
+          <a className="navCta" href="#contact">咨询合作</a>
+        </div>
+      </nav>
+
+      <section className="hero shell" id="top">
+        <p className="eyebrow">SHOPIFY DESIGN & DEVELOPMENT</p>
+        <h1>让你的独立站，<br /><em>更专业，也更能转化。</em></h1>
+        <div className="heroBottom">
+          <p>从页面优化、AI 视觉到完整品牌站搭建。按阶段确认、按节点付款，让预算、进度和交付都清清楚楚。</p>
+          <a className="button dark" href="#services">查看服务报价 <span>↓</span></a>
+        </div>
+      </section>
+
+      <div className="promise"><div className="shell"><span>先收款，再排期</span><span>分阶段确认与付款</span><span>需求变更必须加价</span></div></div>
+
+      <section className="section shell" id="services">
+        <header className="sectionHead"><p>01 / 服务报价</p><h2>选择适合你的起点</h2><span>以下为常见项目参考价，最终费用根据页面数量、功能复杂度、素材与交付周期确认。</span></header>
+        <div className="services">
+          {services.map(([name, price, note], index) => (
+            <article className={index === 2 ? "featured" : ""} key={name}>
+              <span className="number">0{index + 1}</span>
+              <h3>{name}</h3>
+              <p>{note}</p>
+              <div className="price"><small>¥</small>{price}<small> 起</small></div>
+              <a href="#contact">咨询此服务 ↗</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="payment" id="payment">
+        <div className="shell paymentInner">
+          <header><p>02 / 付款方式</p><h2>每一笔付款，<br />都对应明确进度。</h2><span>首款未到账不开工，尾款未结清不交付完整源码、管理员权限和可编辑源文件。</span></header>
+          <div className="paymentCards">
+            <article>
+              <div className="paymentTitle"><span>小型项目</span><strong>50 / 50</strong></div>
+              <ol><li><b>50%</b><p>确认需求、排期前<small>项目启动</small></p></li><li><b>50%</b><p>最终版本交付前<small>结清尾款</small></p></li></ol>
+            </article>
+            <article>
+              <div className="paymentTitle"><span>¥8,000 以上建站</span><strong>40 / 40 / 20</strong></div>
+              <ol><li><b>40%</b><p>签约排期<small>需求梳理与启动</small></p></li><li><b>40%</b><p>核心页面确认<small>进入正式开发</small></p></li><li><b>20%</b><p>上线验收前<small>后台、源码与说明交接</small></p></li></ol>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="example shell">
+        <div className="exampleIntro"><p>03 / 费用构成示例</p><h2>¥8,000 品牌站<br />不是“只做几个页面”</h2><span>你购买的是从需求梳理、设计开发到上线交接的一套完整服务。</span></div>
+        <dl>
+          <div><dt>需求与品牌梳理</dt><dd>¥800</dd></div><div><dt>首页设计与搭建</dt><dd>¥2,000</dd></div><div><dt>产品页模板</dt><dd>¥1,500</dd></div><div><dt>基础 SEO</dt><dd>¥800</dd></div><div><dt>AI 视觉素材</dt><dd>¥1,500</dd></div><div><dt>移动端适配</dt><dd>¥800</dd></div><div><dt>上线与交接</dt><dd>¥600</dd></div>
+          <div className="total"><dt>合计</dt><dd>¥8,000</dd></div>
+        </dl>
+      </section>
+
+      <section className="section shell" id="rules">
+        <header className="sectionHead"><p>04 / 合作规则</p><h2>合作前，先把边界说清楚</h2></header>
+        <div className="rules">{rules.map(([no,title,text]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <footer id="contact">
+        <div className="shell">
+          <p className="eyebrow">READY TO START?</p>
+          <h2>先聊需求，<br />再给你一份清晰报价。</h2>
+          <div className="contact"><span>咨询合作｜获取详细报价单</span><a href="mailto:hello@example.com">发送邮件 ↗</a></div>
+          <small>© 2026 AML Independent Site Studio · 报价以最终确认的服务范围为准</small>
+        </div>
+      </footer>
+    </main>
+  );
+}
