@@ -59,6 +59,7 @@ export default function Home() {
                 <figcaption>DESKTOP + MOBILE</figcaption>
               </figure>}
               <ul>{service.items.map((item, itemIndex) => <li className={index === 0 && itemIndex === service.items.length - 1 ? "benefit" : ""} key={item}>{item}</li>)}</ul>
+              {index === 3 && <a className="aiPortfolio" href="https://ai-model-artist-portfolio.aierer.chatgpt.site" target="_blank" rel="noreferrer"><span>AI MODEL PORTFOLIO</span>查看 43 组 AI 模特作品 ↗</a>}
               {index >= 4 && <p className="trustBuffer">可先从诊断或单页优化开始合作，满意后再推进。</p>}
               <div className={`price ${index === 3 ? "addonPrice" : ""}`}>{index === 3 ? "按需报价" : <><small>¥</small>{service.price}<small> 起</small></>}</div>
               <a href="#contact">咨询此服务 ↗</a>
