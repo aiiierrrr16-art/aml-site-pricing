@@ -1,10 +1,10 @@
 const services = [
-  { name: "网站诊断报告", price: "699", fit: "适合已有网站，但不确定问题在哪里", items: ["首页、产品页与移动端体验检查", "购买路径与基础转化问题梳理", "基础 SEO、速度与信任感检查", "交付一份问题清单及优化优先级", "诊断费可在后续任意优化 / 建站服务中全额抵扣"] },
-  { name: "首页优化", price: "1,500", fit: "适合网站已上线，但首页缺少品牌感与重点", image: "./service-shots/home-optimization.png", mobileImage: "./service-shots/home-optimization-mobile.png", items: ["首屏卖点与内容顺序重新梳理", "版式、字体、色彩与视觉层级优化", "核心模块与行动按钮调整", "桌面端及移动端适配"] },
-  { name: "首页 + 产品页优化", price: "3,000", fit: "适合有流量，但访问后加购和购买偏低", image: "./service-shots/home-product.png", mobileImage: "./service-shots/home-product-mobile.png", items: ["首页内容结构与品牌视觉升级", "产品页信息、卖点与购买区优化", "信任背书、FAQ 与关联推荐规划", "核心购买路径及移动端整体检查"] },
+  { name: "网站诊断报告", price: "499", fit: "适合已有网站，但不确定问题在哪里", items: ["首页、产品页与移动端体验检查", "购买路径与基础转化问题梳理", "基础 SEO、速度与信任感检查", "交付一份问题清单及优化优先级", "诊断费可在后续任意优化 / 建站服务中全额抵扣"] },
+  { name: "首页优化", price: "1,200", fit: "适合网站已上线，但首页缺少品牌感与重点", image: "./service-shots/home-optimization.png", mobileImage: "./service-shots/home-optimization-mobile.png", items: ["首屏卖点与内容顺序重新梳理", "版式、字体、色彩与视觉层级优化", "核心模块与行动按钮调整", "桌面端及移动端适配"] },
+  { name: "首页 + 产品页优化", price: "2,500", fit: "适合有流量，但访问后加购和购买偏低", image: "./service-shots/home-product.png", mobileImage: "./service-shots/home-product-mobile.png", items: ["首页内容结构与品牌视觉升级", "产品页信息、卖点与购买区优化", "信任背书、FAQ 与关联推荐规划", "核心购买路径及移动端整体检查"] },
   { name: "AI 视觉素材（项目加购）", price: "", fit: "建站 / 优化项目可加购品牌视觉素材，按需报价。", items: ["独立需求：产品 / 场景图 ¥800 起 / 10 张", "原创模特形象 ¥1,500 起 / 组"] },
-  { name: "基础品牌站搭建", price: "6,000", fit: "适合首次启动 Shopify、产品与素材较完整", items: ["基础需求梳理与网站结构规划", "首页、产品页及必要基础页面搭建", "支付、域名、物流与基础 SEO 配置", "移动端适配、上线检查与后台交接"] },
-  { name: "完整品牌站", price: "10,000", fit: "适合希望从品牌表达开始系统搭建独立站", image: "./service-shots/full-brand-site.png", mobileImage: "./service-shots/full-brand-site-mobile.png", items: ["品牌定位、页面策略与视觉方向", "首页、集合页、产品页及内容页面", "AI 视觉素材与转化模块设计", "支付物流、SEO、上线测试及操作说明"] },
+  { name: "基础品牌站搭建", price: "5,000", fit: "适合首次启动 Shopify、产品与素材较完整", items: ["基础需求梳理与网站结构规划", "首页、产品页及必要基础页面搭建", "支付、域名、物流与基础 SEO 配置", "移动端适配、上线检查与后台交接"] },
+  { name: "完整品牌站", price: "8,000", fit: "适合希望从品牌表达开始系统搭建独立站", image: "./service-shots/full-brand-site.png", mobileImage: "./service-shots/full-brand-site-mobile.png", items: ["品牌定位、页面策略与视觉方向", "首页、集合页、产品页及内容页面", "AI 视觉素材与转化模块设计", "支付物流、SEO、上线测试及操作说明"] },
 ];
 
 const cases = [
@@ -46,7 +46,7 @@ export default function Home() {
       <div className="promise"><div className="shell"><span>先收款，再排期</span><span>分阶段确认与付款</span><span>需求变更必须加价</span></div></div>
 
       <section className="section shell" id="services">
-        <header className="sectionHead"><p>01 / 服务报价</p><h2>选择适合你的起点</h2><span>以下为常见项目参考价，最终费用根据页面数量、功能复杂度、素材与交付周期确认。</span></header>
+        <header className="sectionHead"><p>01 / 服务报价</p><h2>选择适合你的起点</h2><span><b className="launchOffer">首批合作价格｜限前 3 个项目</b>最终费用根据页面数量、功能复杂度、素材与交付周期确认。</span></header>
         <div className="services">
           {services.map((service, index) => (
             <article className={index === 2 ? "featured" : ""} key={service.name}>
